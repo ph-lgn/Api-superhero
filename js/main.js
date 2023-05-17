@@ -1,45 +1,42 @@
+const {createApp} = Vue;
 
-const {createApp} = Vue
-
-createApp ({
-  data() {
-    return {
-    // 1 tableau vide
-     tabImages :[],
-    // 2 mettre un chiffre par défaut et faire aussi un v-model sur le select avec images
-     imagesShiba :5
+createApp({
+  data(){
+    return{
+      tabDatas : [],
+      input : "",
+      filterDatas:[],
     }
   },
   methods : {
-    fetchData() {
-      const urlShiba = 'http://shibe.online/api/shibes?count='+this.imagesShiba+''
-
-      fetch(urlShiba)
+    returnData(){
+      fetch('https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/all.json')
       .then(response => response.json())
       .then(data => {
-
-        // 3 envoyer mes datas dans la box vide
-        this.tabImages = data
-        
+        //  envoye datas dans le tab vide
+        this.tabDatas = data;
       })
       .catch(error => {
-        console.error("Erreur lors de la récupération des données :", error); 
-      });
-        
+        console.error('error:', error)
+      })
+    },
+    InputKeyPress() {
+      // Filtrer les données en fonction de ma valeur de recherche
+      this.filterDatas = this.tabDatas.filter(filterHero=>
+        filterHero.name.toLowerCase().includes(this.input.toLowerCase())
+      );
+    },
+  //   DisplayModal() {
 
-    },
-    mounted() {
-      // 4 On lance la fonction du Fetch ici avec this!!!
-     this.fetchData()
-      
-    },
+ 
+  // }
   },
-  watch: {
-    // 5 imagesShiba du début en fonction + relance notre function fetch
-    imagesShiba () {
-      this.fetchData();
-    }
-  }
-}).mount('#application')
+ 
+  mounted() {
+    // lance la fonction du Fetch ici (attention : this)
+   this.returnData()
+    
+  },
+}).mount("#application")
 
 

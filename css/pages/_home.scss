@@ -1,70 +1,105 @@
 body {
   font-family: 'Quicksand', sans-serif;
 }
-img {
-  max-width:100%;
+
+body::before{
+  content: "";
+  width: 100%;
+  height: 100vh;
+  background: url(../img/main-qimg-c56bb9235ab53b6e312f178ddc43253e-lq.jpg);
+  z-index: -1;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  opacity: 0.1;
 }
+
 .wrapper {
   width: 90%;
   margin:50px auto;
+  z-index: 2;
 }
-.logo {
-  width: 500px;
-  margin:0 auto;
-  display: block
-}
-.fa-heart {
-  color:#FF667D;
-  font-size: 100px;
-  position: absolute;
-  top:15px;
-  left:15px;
-  transform:rotate(-45deg)
-}
-.circle {
-  background:#55F8EB;
-  border-radius:50%;
-  width: 100px;
-  height: 100px;
-  position: absolute;
-  bottom:15px;
-  right:15px;
-}
-strong {
-  margin-bottom: 15px;
-  display: inline-block;
-  font-size: 1.5rem;
-  color:#FF667D;
-}
-p {
-  font-size: 0.85rem;
-  line-height:1.5rem;
-  max-width:1000px;
-  margin:0 auto;
-}
-#app {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap:50px;
-  margin-top: 50px;
-}
+
 h1 {
   text-align: center;
   text-transform: uppercase;
+  color: #ff3251;
+  letter-spacing: 5px;
+  font-size: 45px;
+}
+.wrap_input {
+  width: 50%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+input {
+  padding: 15px;
+  border: 1px solid #FF667D;
+  border-radius: 8px;
+}
+input::placeholder {
+  color: #FF667D;
+}
+input:focus {
+  color: #FF667D;
+  outline: 2px solid #f5647a;
+}
+
+button {
+  background: #FF667D;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  width: 300px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+button:hover {
+  cursor: pointer;
+  background: white;
   color: #FF667D;
 }
 
-.wrap {
-  border-radius: 8px;
-  text-align: center;
-  width: 90%;
-  margin: 0 auto;
-  background: #0000002c;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
+
+h2 {
+  text-transform: uppercase;
+  font-size: 35px;
+  letter-spacing: 5px;
 }
 
-.select {
+.list {
+  width: 90%;
+  margin: 0 auto;
+  display: flex;
+  border-radius:8px ;
+  padding: 20px;
+  border:1px solid #FF667D;
+}
+.modal {
+  background: #000;
+  width: 90%;
+  margin: 0 auto;
+  display: flex;
+  border-radius:8px ;
+  padding: 20px;
+  border:1px solid #FF667D;
+}
+
+.modal img {
+  width: 200px;
+  border-radius: 8px;
+}
+
+.infos {
+  width: 100%;
   text-align: center;
-  margin-bottom: 50px;
+  padding: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 25px;
 }

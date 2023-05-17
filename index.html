@@ -9,10 +9,34 @@
 </head>
 <body>
   <div class="wrapper" id="application">
-      
+   
+    <h1>~ SuperHeroes ~</h1>
+    <div class="wrap_input">
+      <input type="text" placeholder="Votre recherche" v-model="input" @input="InputKeyPress">
+      <button  v-on:click="returnData()">Search your superhero</button>
+   </div>
+
+    <div class="list" v-for="tabData in filterDatas">
+      <a href=""><img :src="tabData.images.sm" alt=""></a>
+      <div class="infos">
+        <h2>{{tabData.name}}</h2>
+        <span><strong>Full name :</strong> {{tabData.biography.fullName}}</span>
+        <span>{{tabData.publisher}}</span>
+      </div>  
+    </div>
+
+    <!-- modal -->
+    <!-- <div class="modal"  v-for="(tabData, index) in filterDatas">
+      <a href="#"><img :src="tabData.images.sm" alt=""></a>
+      <div class="infos">
+        <h2>{{ tabData.name }}</h2>
+        <span><strong>Full name :</strong> {{ tabData.biography.fullName }}</span>
+        <span>{{ tabData.publisher }}</span>
+      </div>
+    </div> -->
+
 
   </div>
-
 
   
   <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
